@@ -147,10 +147,16 @@ const deleteUser = ((req,res)=>{
     message: 'intrenal server error'
   })
 }) 
-  // ROUTER NFTs
-  app.route('/api/v1/nfts').get(getAllNfts).post(createNft)
-  app.route('/api/v1/nfts/:id').get(getSingleNft).patch(updateNfts).delete(deteleNfts)
+
+const nftRouter = express.Router();
+app.use('/api/v1/nfts',nftRouter)
+const userRouter = express.Router();
+app.use('/api/v1/users',userRouter)
+
+// ROUTER NFTs
+nftRouter.route('/').get(getAllNfts).post(createNft)
+nftRouter.route('/:id').get(getSingleNft).patch(updateNfts).delete(deteleNfts)
   
-  // ROUTER USERS
-  app.route('/api/v1/users').get(getAllUsers).post(createUser)
-  app.route('/api/v1/users/:id').get(getSingleUser).patch(updateUser).delete(deleteUser)
+// ROUTER USERS
+userRouter.route('/').get(getAllUsers).post(createUser)
+userRouter.route('/:id').get(getSingleUser).patch(updateUser).delete(deleteUser)
