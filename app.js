@@ -1,5 +1,3 @@
-
-//IMPORTS
 const { json } = require('express');
 const express = require('express');
 const fs = require('fs');
@@ -13,9 +11,6 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-//create port we can add any number 5000/3000
-const port = 3000;
-app.listen(port,()=>{console.log(`App is running on Port ${port}`)})
 
 //crete custome MIDDLEWARE
 app.use((req,res,next)=>{
@@ -29,9 +24,8 @@ app.use((req,res,next)=>{
   next();
 })
 
+//ROUTERS
 app.use('/api/v1/nfts',nftsRouter)
 app.use('/api/v1/users',usersRouter)
 
-
-
-  
+module.exports= app

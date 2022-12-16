@@ -4,7 +4,7 @@
   "description": "this is general api, then converted to nft marketplace api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "its me",
   "license": "ISC",
