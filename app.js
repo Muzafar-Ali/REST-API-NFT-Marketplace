@@ -5,9 +5,7 @@ const express = require('express');
 const fs = require('fs');
 const morgan = require('morgan');
 const nftsRouter = require('./routes/nftsRoute')
-const usersRouter = require('./routes/nftsRoute')
-
-
+const usersRouter = require('./routes/usersRoute')
 
 //create serever
 const app = express()
@@ -30,7 +28,6 @@ app.use((req,res,next)=>{
   req.requestTime = new Date().toString();
   next();
 })
-
 
 app.use('/api/v1/nfts',nftsRouter)
 app.use('/api/v1/users',usersRouter)
