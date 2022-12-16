@@ -111,8 +111,46 @@ const createNft = ((req,res)=>{
       message:'DELETE NFT Price'
     })
   })
-  
+
+  //USERS 
+ const getAllUsers = ((req,res)=>{
+  res.status(500).json({
+    status:'error',
+    message: 'intrenal server error'
+  })
+}) 
+
+ const getSingleUser = ((req,res)=>{
+  res.status(500).json({
+    status:'error',
+    message: 'intrenal server error'
+  })
+}) 
+
+const createUser = ((req,res)=>{
+  res.status(500).json({
+    status:'error',
+    message: 'intrenal server error'
+  })
+}) 
+
+const updateUser = ((req,res)=>{
+  res.status(500).json({
+    status:'error',
+    message: 'intrenal server error'
+  })
+}) 
+
+const deleteUser = ((req,res)=>{
+  res.status(500).json({
+    status:'error',
+    message: 'intrenal server error'
+  })
+}) 
   // ROUTER NFTs
   app.route('/api/v1/nfts').get(getAllNfts).post(createNft)
   app.route('/api/v1/nfts/:id').get(getSingleNft).patch(updateNfts).delete(deteleNfts)
   
+  // ROUTER USERS
+  app.route('/api/v1/users').get(getAllUsers).post(createUser)
+  app.route('/api/v1/users/:id').get(getSingleUser).patch(updateUser).delete(deleteUser)
