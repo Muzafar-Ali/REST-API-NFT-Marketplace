@@ -9,7 +9,10 @@ const usersRouter = require('./routes/usersRoute')
 const app = express()
 //use middleware this will provide data in POST METHOD
 app.use(express.json())
-app.use(morgan('dev'))
+//run mrogan only in development env
+if(process.env.NODE_ENV === "development"){
+  app.use(morgan('dev'))
+}
 
 //Serving TEMPLATE Demo
 app.use(express.static(`${__dirname}/nft-data/img`));
