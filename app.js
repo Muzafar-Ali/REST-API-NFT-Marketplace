@@ -11,6 +11,8 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
+//Serving TEMPLATE Demo
+app.use(express.static(`${__dirname}/nft-data/img`));
 
 //crete custome MIDDLEWARE
 app.use((req,res,next)=>{
